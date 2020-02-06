@@ -1,0 +1,20 @@
+<div class="col-md-5 m-2 bg-dark text-light">
+  <% for (var i = 0; i < South.root.station[0].etd.length; i++) { %>
+
+  <h1>
+    Next Train:
+    <span class="text-primary">
+      <%= South.root.station[0].etd[i].destination %></span
+    >
+  </h1>
+  <h2>
+    in:
+    <span class="text-primary">
+      <% for ( J = 0; J < South.root.station[0].etd[i].estimate.length; J++) {
+      %> <%= South.root.station[0].etd[i].estimate[J].minutes %> <% if ( J <
+        South.root.station[0].etd[i].estimate.length-1){ %> , <% } %> <% } %>
+      </span>
+    </h2>
+  </h2>
+  <% } %>
+</div>

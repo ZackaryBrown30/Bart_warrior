@@ -1,0 +1,232 @@
+{
+    "?xml": {
+        "@version": "1.0",
+        "@encoding": "utf-8"
+    },
+    "root": {
+        "@id": "1",
+        "uri": {
+            "#cdata-section": "http://api.bart.gov/api/etd.aspx?cmd=etd&orig=19th&json=y"
+        },
+        "date": "02/03/2020",
+        "time": "06:33:46 PM PST",
+        "station": [
+            {
+                "name": "19th St. Oakland",
+                "abbr": "19TH",
+                "etd": [
+                    {
+                        "destination": "Antioch",
+                        "abbreviation": "ANTC",
+                        "limited": "0",
+                        "estimate": [
+                            {
+                                "minutes": "11",
+                                "platform": "3",
+                                "direction": "North",
+                                "length": "10",
+                                "color": "YELLOW",
+                                "hexcolor": "#ffff33",
+                                "bikeflag": "1",
+                                "delay": "145"
+                            },
+                            {
+                                "minutes": "24",
+                                "platform": "3",
+                                "direction": "North",
+                                "length": "10",
+                                "color": "YELLOW",
+                                "hexcolor": "#ffff33",
+                                "bikeflag": "1",
+                                "delay": "0"
+                            },
+                            {
+                                "minutes": "39",
+                                "platform": "3",
+                                "direction": "North",
+                                "length": "10",
+                                "color": "YELLOW",
+                                "hexcolor": "#ffff33",
+                                "bikeflag": "1",
+                                "delay": "0"
+                            }
+                        ]
+                    },
+                    {
+                        "destination": "Millbrae",
+                        "abbreviation": "MLBR",
+                        "limited": "0",
+                        "estimate": [
+                            {
+                                "minutes": "Leaving",
+                                "platform": "2",
+                                "direction": "South",
+                                "length": "10",
+                                "color": "RED",
+                                "hexcolor": "#ff0000",
+                                "bikeflag": "1",
+                                "delay": "0"
+                            },
+                            {
+                                "minutes": "16",
+                                "platform": "2",
+                                "direction": "South",
+                                "length": "10",
+                                "color": "RED",
+                                "hexcolor": "#ff0000",
+                                "bikeflag": "1",
+                                "delay": "0"
+                            },
+                            {
+                                "minutes": "31",
+                                "platform": "2",
+                                "direction": "South",
+                                "length": "9",
+                                "color": "RED",
+                                "hexcolor": "#ff0000",
+                                "bikeflag": "1",
+                                "delay": "0"
+                            }
+                        ]
+                    },
+                    {
+                        "destination": "Pittsburg/Bay Point",
+                        "abbreviation": "PITT",
+                        "limited": "0",
+                        "estimate": [
+                            {
+                                "minutes": "7",
+                                "platform": "3",
+                                "direction": "North",
+                                "length": "9",
+                                "color": "YELLOW",
+                                "hexcolor": "#ffff33",
+                                "bikeflag": "1",
+                                "delay": "176"
+                            }
+                        ]
+                    },
+                    {
+                        "destination": "Richmond",
+                        "abbreviation": "RICH",
+                        "limited": "0",
+                        "estimate": [
+                            {
+                                "minutes": "Leaving",
+                                "platform": "1",
+                                "direction": "North",
+                                "length": "10",
+                                "color": "RED",
+                                "hexcolor": "#ff0000",
+                                "bikeflag": "1",
+                                "delay": "0"
+                            },
+                            {
+                                "minutes": "9",
+                                "platform": "1",
+                                "direction": "North",
+                                "length": "6",
+                                "color": "ORANGE",
+                                "hexcolor": "#ff9933",
+                                "bikeflag": "1",
+                                "delay": "0"
+                            },
+                            {
+                                "minutes": "16",
+                                "platform": "1",
+                                "direction": "North",
+                                "length": "9",
+                                "color": "RED",
+                                "hexcolor": "#ff0000",
+                                "bikeflag": "1",
+                                "delay": "0"
+                            }
+                        ]
+                    },
+                    {
+                        "destination": "SF Airport",
+                        "abbreviation": "SFIA",
+                        "limited": "0",
+                        "estimate": [
+                            {
+                                "minutes": "12",
+                                "platform": "2",
+                                "direction": "South",
+                                "length": "10",
+                                "color": "YELLOW",
+                                "hexcolor": "#ffff33",
+                                "bikeflag": "1",
+                                "delay": "143"
+                            },
+                            {
+                                "minutes": "27",
+                                "platform": "2",
+                                "direction": "South",
+                                "length": "9",
+                                "color": "YELLOW",
+                                "hexcolor": "#ffff33",
+                                "bikeflag": "1",
+                                "delay": "131"
+                            },
+                            {
+                                "minutes": "40",
+                                "platform": "2",
+                                "direction": "South",
+                                "length": "10",
+                                "color": "YELLOW",
+                                "hexcolor": "#ffff33",
+                                "bikeflag": "1",
+                                "delay": "0"
+                            }
+                        ]
+                    },
+                    {
+                        "destination": "Warm Springs",
+                        "abbreviation": "WARM",
+                        "limited": "0",
+                        "estimate": [
+                            {
+                                "minutes": "12",
+                                "platform": "2",
+                                "direction": "South",
+                                "length": "8",
+                                "color": "ORANGE",
+                                "hexcolor": "#ff9933",
+                                "bikeflag": "1",
+                                "delay": "0"
+                            },
+                            {
+                                "minutes": "27",
+                                "platform": "2",
+                                "direction": "South",
+                                "length": "6",
+                                "color": "ORANGE",
+                                "hexcolor": "#ff9933",
+                                "bikeflag": "1",
+                                "delay": "0"
+                            },
+                            {
+                                "minutes": "42",
+                                "platform": "2",
+                                "direction": "South",
+                                "length": "6",
+                                "color": "ORANGE",
+                                "hexcolor": "#ff9933",
+                                "bikeflag": "1",
+                                "delay": "0"
+                            }
+                        ]
+                    }
+                ]
+            }
+        ],
+        "message": ""
+    }
+}
+
+
+
+Bart-App
+NodeJS/EJS/Express Bart-Api; Template rendering application using OOP, restful routing, and MVC standards.
+
+Intended to be the lightest possible application for easy access in low connectivity zones. Built with Mobile users in mind, chrome/broswer native.

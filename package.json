@@ -1,0 +1,31 @@
+{
+  "name": "bart_api",
+  "version": "1.0.0",
+  "description": "Express / Nunjucks bart desktop application",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ZackaryBrown30/Bart-App.git"
+  },
+  "keywords": [
+    "Bart"
+  ],
+  "author": "Zackary Brown",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ZackaryBrown30/Bart-App/issues"
+  },
+  "homepage": "https://github.com/ZackaryBrown30/Bart-App#readme",
+  "dependencies": {
+    "ejs": "^3.0.1",
+    "express": "^4.17.1",
+    "express-flash": "0.0.2",
+    "express-session": "^1.17.0",
+    "mongoose": "^5.8.11",
+    "nunjucks": "^3.2.0",
+    "request": "^2.88.0"
+  }
+}
