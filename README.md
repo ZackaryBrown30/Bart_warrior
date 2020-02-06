@@ -1,0 +1,1 @@
+In order to make a clone of this app work you will need to add a file called key.js in your root directory and export a variable key: "Your-Key-Here", bart supplies a free public key that is prone to changing from time to time, or you may request a legacy key for your peronal use that will not in theory expire.
