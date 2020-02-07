@@ -1,114 +1,537 @@
 <div class="accordion" id="citySelector">
+  <!-- MAP -->
+
   <div class="card">
-    <div class="card-header" id="headingOne">
-      <h1 class="mb-0">
-        <button
-          class="btn btn-link  collapsed"
-          type="button"
-          data-toggle="collapse"
-          data-target="#collapseOne"
-          aria-expanded="false"
-          aria-controls="collapseOne"
-        >
-          Oakland
-        </button>
-      </h1>
-    </div>
+    <button
+      class="btn bg-warning rounded card-header collapsed"
+      type="button"
+      id="headingMap"
+      data-toggle="collapse"
+      data-target="#collapseMap"
+      aria-expanded="true"
+      aria-controls="collapseMap"
+    >
+      <h1>Service Map</h1>
+    </button>
 
     <div
-      id="collapseOne"
-      class="collapse"
-      aria-labelledby="headingOne"
+      id="collapseMap"
+      class="show"
+      aria-labelledby="headingMap"
       data-parent="#citySelector"
     >
-      <div class="card-body">
-        <button class="m-1 btn btn-dark" value="19th">
+      <div class="card-body  bg-secondary">
+        800x350 WebP Image
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Oakland -->
+
+<div class="card">
+  <button
+    class="btn bg-warning card-header collapsed"
+    id="headingOne"
+    type="button"
+    data-toggle="collapse"
+    data-target="#collapseOne"
+    aria-expanded="false"
+    aria-controls="collapseOne"
+  >
+    <h1>Oakland</h1>
+  </button>
+  <!-- Activator Button ^^^-->
+  <!-- Accordion \/\/ -->
+  <div
+    id="collapseOne"
+    class="collapse"
+    aria-labelledby="headingOne"
+    data-parent="#citySelector"
+  >
+    <div class="card-body bg-secondary d-flex">
+      <div
+        class="btn-group-lg flex-fill btn-group-vertical"
+        role="group"
+        aria-label="Btn-Group"
+      >
+        <button
+          onclick="location.href='19th'"
+          type="button"
+          class="btn btn-dark"
+          value="19th"
+        >
           19th Street
         </button>
-        <button class="m-1 btn btn-dark" value="12th">
+        <button
+          onclick="location.href='12th'"
+          type="button"
+          class="btn btn-dark"
+          value="12th"
+        >
           12th Street
         </button>
-        <button class="m-1 btn btn-dark" value="lake">
+        <button
+          onclick="location.href='lake'"
+          type="button"
+          class="btn btn-dark"
+          value="lake"
+        >
           Lake Meritt
         </button>
-        <button class="m-1 btn btn-dark" value="woak">
+
+        <button
+          onclick="location.href='woak'"
+          type="button"
+          class="btn btn-dark"
+          value="woak"
+        >
           West Oakland
         </button>
-        <button class="m-1 btn btn-dark" value="cols">
+        <button
+          onclick="location.href='cols'"
+          type="button"
+          class="btn btn-dark"
+          value="cols"
+        >
           Coliseum
         </button>
-        <button class="m-1 btn btn-dark" value="ftvl">
+      </div>
+      <!-- Half of Form Group -->
+      <div
+        class="btn-group-vertical ml-1 flex-fill btn-group-lg"
+        role="group"
+        aria-label="Btn-Group"
+      >
+        <button
+          onclick="location.href='ftvl'"
+          type="button"
+          class="btn btn-dark"
+          value="ftvl"
+        >
           Fruitvale
         </button>
-        <button class="m-1 btn btn-dark" value="mcar">
+
+        <button
+          onclick="location.href=' mcar '"
+          type="button"
+          class="btn btn-dark"
+          value="mcar"
+        >
           MacArthur
         </button>
-        <button class="m-1 btn btn-dark" value="oakl">
-          Oak Airport
-        </button>
-        <button class="m-1 btn btn-dark" value="cols">
+
+        <button
+          onclick="location.href=' cols '"
+          type="button"
+          class="btn btn-dark"
+          value="cols"
+        >
           Coliseum
         </button>
-        <button class="m-1 btn btn-dark" value="rock">
+        <button
+          onclick="location.href=' rock '"
+          type="button"
+          class="btn btn-dark"
+          value="rock"
+        >
           Rockridge
         </button>
       </div>
     </div>
   </div>
-  <div class="card">
-    <div class="card-header" id="headingTwo">
-      <h2 class="mb-0">
+</div>
+<!-- SAN FRAN AN SOUTH SAN FRAN -->
+<div class="card rounded">
+  <button
+    class="btn bg-warning rounded card-header collapsed"
+    id="headingTwo"
+    type="button"
+    data-toggle="collapse"
+    data-target="#collapseTwo"
+    aria-expanded="false"
+    aria-controls="collapseTwo"
+  >
+    <h1 class="m-0">San Francisco</h1>
+    <small class="m-0"> & South San</small>
+  </button>
+
+  <div
+    id="collapseTwo"
+    class="btn-group-lg collapse btn-group-vertical"
+    aria-labelledby="headingTwo"
+    data-parent="#citySelector"
+  >
+    <div class="card-body d-flex bg-secondary">
+      <div
+        class="btn-group-lg flex-fill btn-group-vertical"
+        role="group"
+        aria-label="Btn-Group"
+      >
         <button
-          class="btn btn-link collapsed"
-          type="button"
-          data-toggle="collapse"
-          data-target="#collapseTwo"
-          aria-expanded="false"
-          aria-controls="collapseTwo"
+          onclick="location.href=' 16th '"
+          class="m-1 btn btn-dark"
+          value="16th"
         >
-          San Francisco
+          16th Street Mission
         </button>
-      </h2>
+        <button
+          onclick="location.href=' 24th '"
+          class="m-1 btn btn-dark"
+          value="24th"
+        >
+          24th Street Mission
+        </button>
+        <button
+          onclick="location.href=' balb '"
+          class="m-1 btn btn-dark"
+          value="balb"
+        >
+          Balboa Park
+        </button>
+        <button
+          onclick="location.href=' civc '"
+          class="m-1 btn btn-dark"
+          value="civc"
+        >
+          Civic Center
+        </button>
+        <button
+          onclick="location.href=' colm '"
+          class="m-1 btn btn-dark"
+          value="colm"
+        >
+          Colma
+        </button>
+        <button
+          onclick="location.href=' daly '"
+          class="m-1 btn btn-dark"
+          value="daly"
+        >
+          Daly City
+        </button>
+      </div>
+      <div
+        class="btn-group-lg btn-group ml-1 flex-fill btn-group-vertical"
+        role="group"
+        aria-label="Btn-Group"
+      >
+        <button
+          onclick="location.href=' embr '"
+          class="m-1 btn btn-dark"
+          value="embr"
+        >
+          Embarcadero
+        </button>
+        <button
+          onclick="location.href=' glen '"
+          class="m-1 btn btn-dark"
+          value="glen"
+        >
+          Glen Park
+        </button>
+        <button
+          onclick="location.href=' mlbr '"
+          class="m-1 btn btn-dark"
+          value="mlbr"
+        >
+          Milbrae
+        </button>
+        <button
+          onclick="location.href=' mont '"
+          class="m-1 btn btn-dark"
+          value="mont"
+        >
+          Montgomery
+        </button>
+        <button
+          onclick="location.href=' sfia '"
+          class="m-1 btn btn-dark"
+          value="sfia"
+        >
+          Sfo Airport
+        </button>
+        <button
+          onclick="location.href=' ssan '"
+          class="m-1 btn btn-dark"
+          value="ssan"
+        >
+          South San Francisco
+        </button>
+      </div>
+      <button
+        onclick="location.href=' sbrn  '"
+        class="m-1 btn btn-dark"
+        value="sbrn"
+      >
+        San Bruno
+      </button>
     </div>
-    <div
-      id="collapseTwo"
-      class="collapse"
-      aria-labelledby="headingTwo"
-      data-parent="#citySelector"
-    >
-      <div class="card-body">
-        <button>
-          BUTTON
+  </div>
+</div>
+
+<!-- NORF BAE  -->
+
+<div class="card rounded">
+  <button
+    class="btn bg-warning rounded card-header collapsed"
+    type="button"
+    id="headingThree"
+    data-toggle="collapse"
+    data-target="#collapseThree"
+    aria-expanded="false"
+    aria-controls="collapseThree"
+  >
+    <h1>North Bay</h1>
+  </button>
+  <!--  -->
+  <div
+    id="collapseThree"
+    class="collapse"
+    aria-labelledby="headingThree"
+    data-parent="#citySelector"
+  >
+    <div class="card-body d-flex bg-secondary">
+      <div 
+      class="btn-group-lg flex-fill btn-group-vertical"
+      role="group"
+        aria-label="Btn-Group"
+      >
+          <button
+            onclick="location.href='ashb'"
+            class="m-1 btn btn-dark"
+            value="16th"
+          >
+            Ashby
+          </button>
+          <button
+            onclick="location.href='antc'"
+            class="m-1 btn btn-dark"
+            value="24th"
+          >
+            Antioch
+          </button>
+          <button
+            onclick="location.href='conc'"
+            class="m-1 btn btn-dark"
+            value="balb"
+          >
+            Concord
+          </button>
+          <button
+            onclick="location.href='dbrk'"
+            class="m-1 btn btn-dark"
+            value="civc"
+          >
+            Downtown Berkeley
+          </button>
+          <button
+            onclick="location.href='deln'"
+            class="m-1 btn btn-dark"
+            value="colm"
+          >
+            El Corrito del Norte
+          </button>
+          <button
+            onclick="location.href='plza'"
+            class="m-1 btn btn-dark"
+            value="daly"
+          >
+            El Corrito Plaza
+          </button>
+
+          <button
+            onclick="location.href='lafy'"
+            class="m-1 btn btn-dark"
+            value="embr"
+          >
+            Lafayette
+          </button>
+        </div>
+        <div
+          class="btn-group-lg ml-1 flex-fill btn-group-vertical"
+          role="group"
+          aria-label="Btn-Group"
+        >
+          <button
+            onclick="location.href='Milpitas'"
+            class="m-1 btn btn-dark"
+            value="glen"
+          >
+            Milpitas
+          </button>
+          <button
+            onclick="location.href='nbrk'"
+            class="m-1 btn btn-dark"
+            value="mont"
+          >
+            North Berkeley
+          </button>
+          <button
+            onclick="location.href='ncon'"
+            class="m-1 btn btn-dark"
+            value="mlbr"
+          >
+            North Concord / Martinez
+          </button>
+          <button
+            onclick="location.href='orin'"
+            type="button"
+            class="m-1 btn btn-dark"
+            value="sfia"
+          >
+            Orinda
+          </button>
+          <button
+            onclick="location.href=' pitt '"
+            type="button"
+            class="m-1 btn btn-dark"
+            value="ssan"
+          >
+            Pittsburg/ Bay Point
+          </button>
+          <button
+            onclick="location.href='pctr'"
+            type="button"
+            class="m-1 btn btn-block btn-dark"
+            value="sbrn"
+          >
+            Pittsburg Center
+          </button>
+          <button  
+          onclick="location.href='phil'"
+          type="button"
+            class="m-1 btn btn-block btn-dark"
+            value="sbrn"
+          >
+            Pleasant Hill
+          </button>
+          <button
+            onclick="location.href='rich'"
+            type="button"
+            class="m-1 btn btn-block btn-dark"
+            value="sbrn"
+          >
+            Richmond
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+    <!--End  Norf Bae -->
+
+    <!-- Souf Bae -->
+
+<div class="card">
+  <button
+    class="btn bg-warning card-header collapsed"
+    id="headingFour"
+    type="button"
+    data-toggle="collapse"
+    data-target="#collapseFour"
+    aria-expanded="false"
+    aria-controls="collapseFour"
+  >
+    <h1>South Bay</h1>
+  </button>
+  <!-- Activator Button ^^^-->
+  <!-- Accordion \/\/ -->
+  <div
+    id="collapseFour"
+    class="collapse"
+    aria-labelledby="headingFour"
+    data-parent="#citySelector"
+  >
+    <div class="card-body bg-secondary d-flex">
+      <div
+        class="btn-group-lg flex-fill btn-group-vertical"
+        role="group"
+        aria-label="Btn-Group"
+      >
+        <button
+          onclick="location.href='19th'"
+          type="button"
+          class="btn btn-dark"
+          value="19th"
+        >
+          19th Street
+        </button>
+        <button
+          onclick="location.href='12th'"
+          type="button"
+          class="btn btn-dark"
+          value="12th"
+        >
+          12th Street
+        </button>
+        <button
+          onclick="location.href='lake'"
+          type="button"
+          class="btn btn-dark"
+          value="lake"
+        >
+          Lake Meritt
+        </button>
+
+        <button
+          onclick="location.href='woak'"
+          type="button"
+          class="btn btn-dark"
+          value="woak"
+        >
+          West Oakland
+        </button>
+        <button
+          onclick="location.href='cols'"
+          type="button"
+          class="btn btn-dark"
+          value="cols"
+        >
+          Coliseum
+        </button>
+      </div>
+      <!-- Half of Form Group -->
+      <div
+        class="btn-group-vertical ml-1 flex-fill btn-group-lg"
+        role="group"
+        aria-label="Btn-Group"
+      >
+        <button
+          onclick="location.href='ftvl'"
+          type="button"
+          class="btn btn-dark"
+          value="ftvl"
+        >
+          Fruitvale
+        </button>
+
+        <button
+          onclick="location.href=' mcar '"
+          type="button"
+          class="btn btn-dark"
+          value="mcar"
+        >
+          MacArthur
+        </button>
+
+        <button
+          onclick="location.href=' cols '"
+          type="button"
+          class="btn btn-dark"
+          value="cols"
+        >
+          Coliseum
+        </button>
+        <button
+          onclick="location.href=' rock '"
+          type="button"
+          class="btn btn-dark"
+          value="rock"
+        >
+          Rockridge
         </button>
       </div>
     </div>
   </div>
-  <div class="card">
-    <div class="card-header" id="headingThree">
-      <h2 class="mb-0">
-        <button
-          class="btn btn-link collapsed"
-          type="button"
-          data-toggle="collapse"
-          data-target="#collapseThree"
-          aria-expanded="false"
-          aria-controls="collapseThree"
-        >
-          North Bay
-        </button>
-      </h2>
-    </div>
-    <div
-      id="collapseThree"
-      class="collapse"
-      aria-labelledby="headingThree"
-      data-parent="#citySelector"
-    >
-      <div class="card-body">
-        <button>
-          BUTTON
-        </button>
-      </div>
-    </div>
-  </div>
+</div>
 </div>

@@ -1,6 +1,11 @@
-<div class="nav p-4 bg-primary navbar-dark">
-  <h1 class="text-light ml-6 col display-md-3">
-    <%= North.root.station[0].name %>
-  </h1>
- <%- include('button'); -%>
+<div class="nav row p-4 mx-auto text-center bg-primary navbar-dark">
+  <div class="p-2 col">
+    <h1 class="text-light">
+      <%= North.root.station[0].name %>
+    </h1>
+    <%- include('button'); -%>
+  </div>
+  <% if (North.message != " ") { %>
+  <p class="text-warning text-center h4"> <%= North.message%></p>
+  <% } %>
 </div>

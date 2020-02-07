@@ -28,16 +28,21 @@ var station = "req.query.Station;";
 var Mykey = Key.key;
 var cmd = "etd";
 var Tempkey = Key.tempKey;
+var destination = "19th";
 
 app.get("/", function(req, res) {
   request(
-    "http://api.bart.gov/api/etd.aspx?cmd=etd&orig=19th&dir=n&key=" +
-      Tempkey +
+    "http://api.bart.gov/api/etd.aspx?cmd=etd&orig=" +
+      destination +
+      "&dir=n&key=" +
+      Mykey +
       "&json=y",
     function(error, response, north) {
       console.error("North error:", error);
       request(
-        "http://api.bart.gov/api/etd.aspx?cmd=etd&orig=19th&dir=s&key=" +
+        "http://api.bart.gov/api/etd.aspx?cmd=etd&orig=" +
+          destination +
+          "&dir=s&key=" +
           Tempkey +
           "&json=y",
         function(error, response, south) {
@@ -50,6 +55,34 @@ app.get("/", function(req, res) {
       );
     }
   );
+});
+
+app.get("/:station", function(req, res, next) {
+  (destination = req.params.station),
+    request(
+      "http://api.bart.gov/api/etd.aspx?cmd=etd&orig=" +
+        destination +
+        "&dir=n&key=" +
+        Tempkey +
+        "&json=y",
+      function(error, response, north) {
+        console.error("North error:", error);
+        request(
+          "http://api.bart.gov/api/etd.aspx?cmd=etd&orig=" +
+            destination +
+            "&dir=s&key=" +
+            Tempkey +
+            "&json=y",
+          function(error, response, south) {
+            console.error("South error:", error);
+            res.render("ninteenth.ejs", {
+              South: JSON.parse(south),
+              North: JSON.parse(north)
+            });
+          }
+        );
+      }
+    );
 });
 
 const server = app.listen(3000, () => {
