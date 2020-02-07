@@ -3,7 +3,7 @@
 
     <%- include('button'); -%>
   </div>
-  <% if (North.message != " ") { %>
-  <p class="text-warning text-center h4"> <%= North.message%></p>
+  <% if (North.message) { %>
+  <p class="text-warning text-center h4"> <%= North.message.warning %></p>
   <% } %>
 </div>

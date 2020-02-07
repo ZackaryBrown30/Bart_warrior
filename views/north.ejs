@@ -12,10 +12,12 @@
   <h2>
     in:
     <span class="text-primary">
-      <% for ( J = 0; J < North.root.station[0].etd[i].estimate.length; J++) {
-      %> <%= North.root.station[0].etd[i].estimate[J].minutes %> <% if ( J <
-      North.root.station[0].etd[i].estimate.length-1){ %> , <% } %> <% } %>
+      <% for ( J = 0; J < North.root.station[0].etd[i].estimate.length; J++) {%> 
+        <%= North.root.station[0].etd[i].estimate[J].minutes %> 
+        <% if ( J < North.root.station[0].etd[i].estimate.length-1){ %> , 
+          <% } %>
+           <% } %>
     </span>
-  </h2>
+  Minutes</h2>
 </div>
 <% } %>

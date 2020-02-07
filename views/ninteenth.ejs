@@ -17,13 +17,24 @@
     <div class="container">
       <div class="row">
         <% if (!North.root.station[0].etd) { %> 
-          <%-include('afterHours'); %>
+          <h1>No Northbound Trains at this Time</h1>
            <%}%> 
+        <% if (!South.root.station[0].etd) { %> 
+        <h1>No Southbound Trains at this Time</h1>
+        
+          <%}%> 
 
+          <% if (!South.root.station[0].etd && !North.root.station[0].etd) { %> 
+            <h1>No Southbound Trains at this Time</h1>
+            <%-include('afterHours'); %>
+              <%}%> 
         <% if (North.root.station[0].etd) { %> 
           <%- include('north'); -%> 
+          <% } -%>
+        <% if (South.root.station[0].etd) { %> 
           <%- include('south'); -%>
-      <% } -%>
+          <% } -%>
+
       </div>
     </div>
     <%- include('footer'); -%>
