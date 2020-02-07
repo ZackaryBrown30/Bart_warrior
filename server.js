@@ -43,7 +43,7 @@ app.get("/", function(req, res) {
         "http://api.bart.gov/api/etd.aspx?cmd=etd&orig=" +
           destination +
           "&dir=s&key=" +
-          Tempkey +
+          Mykey +
           "&json=y",
         function(error, response, south) {
           console.error("South error:", error);
@@ -63,7 +63,7 @@ app.get("/:station", function(req, res, next) {
       "http://api.bart.gov/api/etd.aspx?cmd=etd&orig=" +
         destination +
         "&dir=n&key=" +
-        Tempkey +
+        Mykey +
         "&json=y",
       function(error, response, north) {
         console.error("North error:", error);
@@ -71,7 +71,7 @@ app.get("/:station", function(req, res, next) {
           "http://api.bart.gov/api/etd.aspx?cmd=etd&orig=" +
             destination +
             "&dir=s&key=" +
-            Tempkey +
+            Mykey +
             "&json=y",
           function(error, response, south) {
             console.error("South error:", error);
