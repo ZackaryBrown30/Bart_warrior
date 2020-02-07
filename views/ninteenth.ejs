@@ -16,7 +16,14 @@
     <%- include('header'); -%>
     <div class="container">
       <div class="row">
-        <%- include('north'); -%> <%- include('south'); -%>
+        <% if (!North.root.station[0].etd) { %> 
+          <%-include('afterHours'); %>
+           <%}%> 
+
+        <% if (North.root.station[0].etd) { %> 
+          <%- include('north'); -%> 
+          <%-vinclude('south'); -%>
+      <% } -%>
       </div>
     </div>
     <%- include('footer'); -%>
