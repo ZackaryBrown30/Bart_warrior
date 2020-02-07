@@ -1,8 +1,7 @@
-<div class="col-md-5 m-2 bg-dark text-light">
-  <% for (var i = 0; i < North.root.station[0].etd.length; i++) { %>
+<% for (var i = 0; i < North.root.station[0].etd.length; i++) { %>
+<div class="col-md-5 m-1 rounded bg-dark text-light">
 
   <h1>
-    Next Train:
     <span class="text-primary">
       <%= North.root.station[0].etd[i].destination %></span
     >
@@ -15,5 +14,5 @@
       North.root.station[0].etd[i].estimate.length-1){ %> , <% } %> <% } %>
     </span>
   </h2>
-  <% } %>
 </div>
+<% } %>
