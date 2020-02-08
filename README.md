@@ -18,8 +18,21 @@ module.exports = {
 
 Step 1: insert key.js
 Step 2: in terminal at root of directory, type command "npm install". 
+Step 3: Either insert your own api key in key.js's MyKey: "" placeholder Or, change all instances inside Server.js' "get" routes of Mykey to tempKey. There are 2 instances in each route that will need to be adjusted. 
 
-Later additions - 
+EXAMPLE: See MyKey Below
+<script>
+app.get("/:station", function(req, res, next) {
+  (destination = req.params.station),
+    request(
+      "http://api.bart.gov/api/etd.aspx?cmd=etd&orig=" +
+        destination +
+        "&dir=n&key=" +
+        Mykey +
+        "&json=y",
+</script>
+
+Later additions I will be making- 
   1. Design a Bart-Map in this theme to fill in the space remaining within the accordion. It will be a button that can collapse in the accordion but will show by default. 
   2. Design a favicon/brand. 
   3. add desktop proportions, it is currently made to render on  mobile, the North.ejs and South.ejs tempates could easily be made to fill out negative space responsively.
