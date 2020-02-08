@@ -1,4 +1,3 @@
-const session = require("express-session");
 const bodyParser = require("body-parser");
 const ejs = require("ejs");
 const express = require("express");
@@ -10,13 +9,6 @@ app.use(express.static("client/static"));
 app.use(bodyParser.json());
 app.use(express.json());
 
-app.use(
-  session({
-    secret: Key.Secret,
-    resave: true,
-    saveUninitialized: true
-  })
-);
 
 app.use(
   bodyParser.urlencoded({
