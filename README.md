@@ -18,9 +18,10 @@ module.exports = {
 
 Step 1: insert key.js
 Step 2: in terminal at root of directory, type command "npm install". 
-Step 3: Either insert your own api key in key.js's MyKey: "" placeholder Or, change all instances inside Server.js' "get" routes of Mykey to tempKey. There are 2 instances in each route that will need to be adjusted. 
+Step 3: Either insert your own api key in key.js's MyKey: "" placeholder 
+  Or, change all instances inside Server.js' "get" routes of "Mykey" to "Tempkey". There are 2 instances in each route that will need to be adjusted. (4 total)
 
-EXAMPLE: See MyKey Below
+EXAMPLE: See MyKey Below 
 <script>
 app.get("/:station", function(req, res, next) {
   (destination = req.params.station),
@@ -29,6 +30,11 @@ app.get("/:station", function(req, res, next) {
         destination +
         "&dir=n&key=" +
         Mykey +
+        "&json=y",
+</script>
+Needs to become
+<script>
+        Tempkey +
         "&json=y",
 </script>
 

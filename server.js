@@ -9,65 +9,55 @@ app.use(express.static("client/static"));
 app.use(bodyParser.json());
 app.use(express.json());
 
-
 app.use(
   bodyParser.urlencoded({
     extended: false
   })
 );
 
-var station = "req.query.Station;";
 var Mykey = Key.key;
 var cmd = "etd";
 var Tempkey = Key.tempKey;
 var destination = "19th";
 
-app.get("/", function(req, res) {
+
+app.get("/", (req, res) => {
   request(
     "http://api.bart.gov/api/etd.aspx?cmd=etd&orig=" +
       destination +
       "&dir=n&key=" +
       Mykey +
       "&json=y",
-    function(error, response, north) {
+      (error, response, north) => {   
       console.error("North error:", error);
       request(
-        "http://api.bart.gov/api/etd.aspx?cmd=etd&orig=" +
-          destination +
-          "&dir=s&key=" +
-          Mykey +
-          "&json=y",
-        function(error, response, south) {
-          console.error("South error:", error);
-          res.render("ninteenth.ejs", {
-            South: JSON.parse(south),
-            North: JSON.parse(north)
-          });
+        "http://api.bart.gov/api/etd.aspx?cmd=etd&orig=" +destination+ "&dir=s&key=" +Mykey+ "&json=y",
+       (error, response, south) => {   
+        console.error("South error:", error);
+        res.render("index.ejs", {
+          South: JSON.parse(south),
+          North: JSON.parse(north)    
+          }); 
         }
       );
     }
   );
 });
 
-app.get("/:station", function(req, res, next) {
+
+app.get("/:station", (req, res, next) => {
   (destination = req.params.station),
     request(
-      "http://api.bart.gov/api/etd.aspx?cmd=etd&orig=" +
-        destination +
-        "&dir=n&key=" +
-        Mykey +
-        "&json=y",
-      function(error, response, north) {
+          "http://api.bart.gov/api/etd.aspx?cmd=etd&orig=" +destination+ "&dir=n&key=" +Mykey+ "&json=y",
+      (error, response, north) => {
+        console.log(north);
         console.error("North error:", error);
         request(
-          "http://api.bart.gov/api/etd.aspx?cmd=etd&orig=" +
-            destination +
-            "&dir=s&key=" +
-            Mykey +
-            "&json=y",
-          function(error, response, south) {
+          "http://api.bart.gov/api/etd.aspx?cmd=etd&orig=" +destination+ "&dir=s&key=" +Mykey+ "&json=y",
+          (error, response, south) => {
+            console.log(south);
             console.error("South error:", error);
-            res.render("ninteenth.ejs", {
+            res.render("index.ejs", {
               South: JSON.parse(south),
               North: JSON.parse(north)
             });
