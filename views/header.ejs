@@ -1,8 +1,11 @@
 <div class="nav row p-1 mx-auto text-center bg-primary navbar-dark">
   <div class="p-1 col">
 
+    <!-- This template has the Accordion embedded in it -->
     <%- include('button'); -%>
   </div>
+
+  <!-- So far i haven't seen this in use. may require a revisit. -->
   <% if (North.message) { %>
   <p class="text-warning text-center h4"> <%= North.message.warning %></p>
   <% } %>

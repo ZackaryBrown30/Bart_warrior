@@ -11,6 +11,7 @@
     in:
     <span class="text-warning">
       <% for ( J = 0; J < South.root.station[0].etd[i].estimate.length; J++) {%> 
+        <!-- Inserts Commas between but not after each instance of "minutes" -->
         <%= South.root.station[0].etd[i].estimate[J].minutes %> 
         <% if ( J < South.root.station[0].etd[i].estimate.length-1){ %>  
          , <% } %> 
