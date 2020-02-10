@@ -9,37 +9,15 @@
       rel="stylesheet"
       href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
     />
-    <title>Document</title>
+    <title>Bart Warrior</title>
   </head>
 
   <body>
     <%- include('header'); -%>
     <div class="container">
       <div class="row">
-
-        <% if (!North.root.station[0].etd) { %> 
-          <div class="col-md-5 m-1 rounded bg-warning text-primary">
-            <h1 class="p-2" >
-              No Northbound Trains at this Time</h1>
-          </div>
-           <%}%> 
-        <% if (!South.root.station[0].etd) { %> 
-          <div class="col-md-5 m-1 rounded bg-primary text-light">
-            <h1 class="p-2" >
-              No Southbound Trains at this Time</h1>
-          </div>
-          <%}%> 
-
-          <% if (!South.root.station[0].etd && !North.root.station[0].etd) { %> 
-            <%-include('afterHours'); %>
-              <%}%> 
-        <% if (North.root.station[0].etd) { %> 
-          <%- include('north'); -%> 
-          <% } -%>
-        <% if (South.root.station[0].etd) { %> 
-          <%- include('south'); -%>
-          <% } -%>
-
+        <h1 class="bg-primary text-warning p-3 col">The requested route does not exist within this app.</h1>
+        <img src="https://picsum.photos/600" alt="Random Image">
       </div>
     </div>
     <%- include('footer'); -%>
