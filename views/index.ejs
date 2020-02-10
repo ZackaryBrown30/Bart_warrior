@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
     <link
       rel="stylesheet"
       href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
@@ -17,7 +18,7 @@
     <div class="container">
       <div class="row">
 
-<!-- Edge Case, if the Api has no data within these parameters for north and or south individually, it used to break the logic -->
+<!-- If the Api has no data within these parameters for north and or south, the user sees a message explaining There are no respective trains.  -->
 
         <% if (!North.root.station[0].etd) { %> 
           <div class="col-md-5 m-1 rounded bg-warning text-primary">
@@ -33,7 +34,7 @@
           </div>
           <%}%> 
 
- <!-- Edge Case, if no times are listed, bart is not running in this station -->
+ <!-- If no times are listed, bart is not running at this station, display afterhours -->
 
           <% if (!South.root.station[0].etd && !North.root.station[0].etd) { %> 
             <%-include('afterHours'); %>
