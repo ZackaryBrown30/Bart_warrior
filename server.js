@@ -20,7 +20,6 @@ var cmd = "etd";
 var Tempkey = PublicKey.tempKey;
 var destination = "19th";
 
-
 app.get("/", (req, res) => {
   Bi_directionalApiCall(res)});
 
@@ -31,21 +30,19 @@ app.get("/:station", (req, res) => {
   /* Calls the bart api for data with parameters that supply northbound, then southbound trains */
 Bi_directionalApiCall = (res)  => { 
   request(
-  "http://api.bart.gov/api/etd.aspx?cmd=etd&orig=" + destination + "&dir=n&key=" + Tempkey + "&json=y",
+  "http://api.bart.gov/api/etd.aspx?cmd=etd&orig=" + destination + "&dir=n&key=" + Mykey + "&json=y",
     (error, response, north) => {   
     console.error("North error:", error);
     request(
-      "http://api.bart.gov/api/etd.aspx?cmd=etd&orig=" +destination+ "&dir=s&key=" +Tempkey+ "&json=y",
+      "http://api.bart.gov/api/etd.aspx?cmd=etd&orig=" +destination+ "&dir=s&key=" +Mykey+ "&json=y",
       (error, response, south) => {   
       console.error("South error:", error);
       res.render("index.ejs", {
         South: JSON.parse(south),
         North: JSON.parse(north)    
         }); 
-      }
-    );
+      });
   })};
-
 
 const server = app.listen(3000, () => {
   console.log(`Server is running on port 3000`);
