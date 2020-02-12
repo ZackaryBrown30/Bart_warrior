@@ -23,6 +23,13 @@ var destination = "19th";
 app.get("/", (req, res) => {
   Bi_directionalApiCall(res)});
 
+
+  /* Wild Error proofing */
+app.get("/favicon.ico", (req,res) => {
+  res.status(404);
+  res.end();
+})  
+
 app.get("/:station", (req, res) => {
   (destination = req.params.station),
   Bi_directionalApiCall(res)});
@@ -35,13 +42,20 @@ Bi_directionalApiCall = (res)  => {
     console.error("North error:", error);
     request(
       "http://api.bart.gov/api/etd.aspx?cmd=etd&orig=" +destination+ "&dir=s&key=" +Mykey+ "&json=y",
-      (error, response, south) => {   
-      console.error("South error:", error);
-      res.render("index.ejs", {
-        South: JSON.parse(south),
-        North: JSON.parse(north)    
-        }); 
-      });
+      (error, response, south) => {
+        
+        console.error("South error:", error);
+        console.log(north);
+        console.log(" *********** ");
+        console.log(south);
+        
+        res
+        .render("index.ejs", {
+          South: JSON.parse(south),
+          North: JSON.parse(north)})
+        })
+        .on('error', (err) => {
+          res.render("runtime.ejs")})
   })};
 
 const server = app.listen(3000, () => {
