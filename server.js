@@ -24,11 +24,11 @@ app.get("/", (req, res) => {
   Bi_directionalApiCall(res)});
 
 
-  /* Wild Error proofing */
-app.get("/favicon.ico", (req,res) => {
-  res.status(404);
-  res.end();
-})  
+//   /* Wild Error proofing */ I 86D the previous Favicon & Added a new call on baggate.ejs for this icon
+// app.get("/favicon.ico", (req,res) => {
+//   res.status(404);
+//   res.end();
+// })  
 
 app.get("/:station", (req, res) => {
   (destination = req.params.station),
