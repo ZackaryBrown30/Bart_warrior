@@ -5,6 +5,7 @@ const flash = require("express-flash");
 const request = require("request");
 const app = express();
 const Key = require("./secure/key");
+// const stations = require("./secure/stations")
 const PublicKey = require("./secure/publicKey")
 app.use(express.static("client/static"));
 app.use(bodyParser.json());
@@ -14,7 +15,10 @@ app.use(
     extended: false
   })
 );
-
+// var oak = stations.dest.oak;
+// var sanfran = stations.dest.sf;
+// var nor = stations.dest.north;
+// var sou = stations.dest.south;
 var Mykey = Key.key;
 var cmd = "etd";
 var Tempkey = PublicKey.tempKey;
@@ -35,13 +39,15 @@ app.get("/:station", (req, res) => {
   Bi_directionalApiCall(res)});
 
   /* Calls the bart api for data with parameters that supply northbound, then southbound trains */
+  /* TO-DO Within both of the Api urls' below, replace the Tempkey variable with 'Mykey' once you have your own stable Api key from Bart.com's legacy API, you will also need to add the Key into the code of /secure/key.js */
+
 Bi_directionalApiCall = (res)  => { 
   request(
-  "http://api.bart.gov/api/etd.aspx?cmd=etd&orig=" + destination + "&dir=n&key=" + Mykey + "&json=y",
+  "http://api.bart.gov/api/etd.aspx?cmd=etd&orig=" + destination + "&dir=n&key=" + Tempkey + "&json=y",
     (error, response, north) => {   
     console.error("North error:", error);
     request(
-      "http://api.bart.gov/api/etd.aspx?cmd=etd&orig=" +destination+ "&dir=s&key=" +Mykey+ "&json=y",
+      "http://api.bart.gov/api/etd.aspx?cmd=etd&orig=" +destination+ "&dir=s&key=" +Tempkey+ "&json=y",
       (error, response, south) => {
         
         console.error("South error:", error);

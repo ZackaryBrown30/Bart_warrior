@@ -1,0 +1,59 @@
+<div id="accordion">
+    <div class="card bg-primary text-center">
+    <div class="card-header bg-warning nav row m-3 text-center navbar-light" id="subscriptionBox">
+        <button class="btn text-primary text-center mx-auto" data-toggle="collapse" data-target="#collapseThree" aria-expanded="true" aria-controls="collapseThree">
+        <h1>Get Notified</h1>
+        </button>
+        </div>
+    <div id="collapseThree" class="collapse show" aria-labelledby="subscriptionBox" data-parent="#accordion">
+      <p class="text-warning text-center"> We can notify you the trains' arrival times on a scheduled basis </p>
+        <form class="card-body text-white btn btn-link collapsed" data-toggle="collapse" data-parent="accordion">
+        </div>
+        <div class="form-group row">
+            <label class="col">Text MSG</label>
+            <input 
+            type="tel" 
+            placeholder="Phone"
+            class="col"
+            aria-label="Phone Number Input">
+            <input 
+            type="checkbox"
+            class="form-control-lg col">
+        </div>
+            <!-- If checkbox is clicked, suppply Phone Inupt -->
+        <div class="form-control form-control-lg">
+            <div class="form-group">
+                <input type="hidden" 
+                info="can we submit the currently active station times and simply ask them if they want north or south?" > 
+                <input type="email"
+                placeholder="@">
+                <input type="checkbox">
+            </div>
+            <br>
+            <label>Mon</label>
+            <input type="checkbox">
+            <label>Tue</label>
+            <input type="checkbox">
+            <label>Wed</label>
+            <input type="checkbox">
+            <label>Thu</label>
+            <input type="checkbox">
+            <label>Fri</label>
+            <input type="checkbox">
+            <label>Sat</label>
+            <input type="checkbox">
+            <label>Sun</label>
+            <input type="checkbox">
+            <input type="time">
+            <button>Add another ?</button> 
+            <!-- Make the date, time module an EJS file and call it if the user clicks the button -->
+            </select>
+            <div class="row">
+            <button class="bg-primary text-warning col" type="submit">North</button>
+            <button class="bg-warning text-primary col" type="submit">South</button>
+            </div>
+    
+
+
+    </div>
+  </div>
