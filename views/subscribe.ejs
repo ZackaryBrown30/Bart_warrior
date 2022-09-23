@@ -11,7 +11,7 @@
     class="collapse" 
     aria-labelledby="subscriptionBox" 
     data-parent="#accordion">
-        <p class="text-primary text-center display-1"> 
+        <p class="text-primary text-center display-3"> 
         Subscribe to your most used stations</p>
         <fieldset>
             <legend>Schedule alerts that tell you when your train is arriving, or if there are delays in your commute</legend>
@@ -97,63 +97,68 @@
                         type="tel" 
                         placeholder="Phone #" 
                         aria-label="Phone number input for scheduled notifications">
-                    </div>
-                    <br>
-                    <div class="" >
-                        <label 
-                        class="form-check-label text-primary" id="emailInput">
-                        Email Notification</label>
-                            <input 
-                            type="email"
-                            aria-describedby="emailInput"
-                            placeholder="@"
-                            aria-label="Email">
-                        </div>
-                    <br>
-                    <div class="">
+                </div>
+                <br>
+                <div class="form-check" >
+                    <label 
+                    class="form-check-label text-primary" id="emailInput">
+                    Email Notification</label>
+                        <input 
+                        type="email"
+                        aria-describedby="emailInput"
+                        placeholder="@"
+                        aria-label="Email">
+                </div>
+                <br>
+                <div class="form-check">
                     <label
-                    class="input-group-prepend text-primary"
+                    class="input-group-prepend form-check-label text-primary"
                     id="Station-Label"
                     >Station Start </label>
-                        <input list="stationSelector"       
-                            placeholder="<%= North.root.station[0].name %>"
-                            aria-label="Station selector"
-                            aria-describedby="Station-Label">
-                            
-                            
-                            <%# DATALIST %> 
-                            <datalist id="stationSelector">
-                                <option value="19th"> 12th Street </option>
-                                <option value="12th"> 19th Street </option>
-                                <option 
-                                aria-placeholder="West Oakland" 
-                                placeholder="West Oakland" 
-                                value="woak"> West Oakland </option>
-                            </datalist>
-
-                        <br>
-
-                            <label
-                            class="input-group-prepend text-primary"
-                            id="EndStation-Label"
-                            >Station End </label>
-                                <input list="stationSelector"       
-                                    placeholder="<%= North.root.station[0].name %>"
-                                    aria-label="End Station selector"
-                                    aria-describedby="End Station-Label">
-                            
-
-                    
+                        <input 
+                        list="stationSelector"       
+                        placeholder="<%= North.root.station[0].name %>"
+                        aria-label="Station selector"
+                        aria-describedby="Station-Label">
+                </div>        
+                        
+                <br>
+                
+                <div class="form-check">
+                    <label
+                    class="input-group-prepend text-primary form-check-label"
+                    id="EndStation-Label"
+                    >Station End </label>
+                    <input list="stationSelector" 
+                    placeholder="<%= North.root.station[0].name %>"
+                    aria-label="End Station selector"
+                    aria-describedby="End Station-Label">
                 </div>
+                <br>
+                <div class="form-check">
+                    <button 
+                    class="bg-warning text-primary" type="submit" >
+                    Schedule</button>
                 </div>
-                    <br>
-                    
-                <button 
-                class="bg-warning text-primary " type="submit" >
-                Schedule</button>
             </div>
         </fieldset>
-            </form>
-            </div>
-        </div>
+        </form>
+    </div>
+    </div>
 </div>
+    <%# DATALIST %> 
+<datalist id="stationSelector">
+    <option 
+    aria-placeholder="19th"
+    value="19th"
+    ></option>
+    <option 
+    aria-placeholder="12th"
+    value="12th"
+    ></option>
+    <option 
+    aria-placeholder="West Oakland" 
+    placeholder="West Oakland" 
+    value="West Oakland">woak</option>
+
+</datalist>

@@ -57,12 +57,9 @@ Bi_directionalApiCall = (res)  => {
   request(
   "http://api.bart.gov/api/etd.aspx?cmd=etd&orig=" + destination + "&dir=n&key=" + Tempkey + "&json=y",
     (error, response, north) => {   
-    console.error("North API error", error);
     request(
       "http://api.bart.gov/api/etd.aspx?cmd=etd&orig=" +destination+ "&dir=s&key=" +Tempkey+ "&json=y",
       (error, response, south) => {
-        
-        console.error("South API error:", error);
         
         res
         .render("index.ejs", {
@@ -80,7 +77,7 @@ Bi_directionalApiCall = (res)  => {
 
         }
         );
-        console.log(nort.antc);
+        // console.log(nort.antc); trying to log the data
       })
         .on('error', (err) => {
           res.render("runtime.ejs")})
