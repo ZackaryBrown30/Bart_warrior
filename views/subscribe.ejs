@@ -1,0 +1,164 @@
+<div id="accordion">
+    <div class="card text-center">
+    <div class="card-header bg-warning row m-3 text-center
+    " id="subscriptionBox">
+        <button class="btn text-primary text-center mx-auto" data-toggle="collapse" data-target="#collapseThree" aria-expanded="true" aria-controls="collapseThree">
+        <h1>Schedule Alerts</h1>
+        </button>
+        </div class="container">
+    <div 
+    id="collapseThree" 
+    class="collapse" 
+    aria-labelledby="subscriptionBox" 
+    data-parent="#accordion">
+        <p class="text-primary text-center display-3"> 
+        Subscribe to your most used stations</p>
+        <fieldset>
+            <legend>Schedule alerts that tell you when your train is arriving, or if there are delays in your commute</legend>
+        <form 
+        class="card-body btn collapsed" data-toggle="collapse" 
+        data-parent="accordion">
+            
+            <table class="table table-bordered">
+                <thead class="thead-dark">
+                    <tr>
+                        <th scope="col">Day</th>
+                        <th scope="col">Time</th>
+                    </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td scope="row">Monday</td>
+                    <td>
+                        <input type="time" name="" id="">
+                        <input type="hidden" value="Monday">
+
+                    </td>
+                </tr>
+                <tr>
+                    <td scope="row">Tuesday</td>
+                    <td>
+                        <input type="time" name="" id="">
+                        <input type="hidden" value="Tuesday">
+
+                    </td>
+                </tr>
+                <tr>
+                    <td scope="row">Wednesay</td>
+                    <td>
+                        <input type="time" name="" id="">
+                        <input type="hidden" value="Wednesay">
+                    </td>
+                </tr>
+                <tr>
+                    <td scope="row">Thursday</td>
+                    <td>
+                        <input type="time" name="" id="">
+                        <input type="hidden" value="Thursday">
+
+                    </td>
+                </tr>
+                <tr>
+                    <td scope="row">Friday</td>
+                    <td>
+                        <input type="time" name="" id="">
+                        <input type="hidden" value="Friday">
+                    </td>
+                </tr>
+                <tr>
+                    <td scope="row">Saturday</td>
+                    <td>
+                        <input type="time" name="" id="">
+                        <input type="hidden" value="Saturday">
+                    </td>
+                </tr>
+                <tr>
+                    <td scope="row">Sunday</td>
+                    <td>
+                        <input type="time" value="" name="" id="">
+                        <input type="hidden" value="Sunday">
+                    </td>
+                </tr>
+            </tbody>
+            </table>
+            <br>
+        </select>
+            <div class="form-group">
+                <div class="form-check">
+                    <label 
+                    class="text-primary">
+                    Text Notification</label>
+                    <!-- <input 
+                        class="form-check-input" 
+                        type="checkbox" 
+                        role="switch" 
+                        id="phoneSwitch"> -->
+                        <input 
+                        type="tel" 
+                        placeholder="Phone #" 
+                        aria-label="Phone number input for scheduled notifications">
+                </div>
+                <br>
+                <div class="form-check" >
+                    <label 
+                    class="form-check-label text-primary" id="emailInput">
+                    Email Notification</label>
+                        <input 
+                        type="email"
+                        aria-describedby="emailInput"
+                        placeholder="@"
+                        aria-label="Email">
+                </div>
+                <br>
+                <div class="form-check">
+                    <label
+                    class="input-group-prepend form-check-label text-primary"
+                    id="Station-Label"
+                    >Station Start </label>
+                        <input 
+                        list="stationSelector"       
+                        placeholder="<%= North.root.station[0].name %>"
+                        aria-label="Station selector"
+                        aria-describedby="Station-Label">
+                </div>        
+                        
+                <br>
+                
+                <div class="form-check">
+                    <label
+                    class="input-group-prepend text-primary form-check-label"
+                    id="EndStation-Label"
+                    >Station End </label>
+                    <input list="stationSelector" 
+                    placeholder="<%= North.root.station[0].name %>"
+                    aria-label="End Station selector"
+                    aria-describedby="End Station-Label">
+                </div>
+                <br>
+                <div class="form-check">
+                    <button 
+                    class="bg-warning text-primary" type="submit" >
+                    Schedule</button>
+                </div>
+            </div>
+        </fieldset>
+        </form>
+    </div>
+    </div>
+</div>
+    <%# DATALIST %> 
+<datalist id="stationSelector">
+    <option 
+    aria-placeholder="19th"
+    value="19th"
+    ></option>
+    <option 
+    aria-placeholder="12th"
+    value="12th"
+    ></option>
+    <option 
+    aria-placeholder="West Oakland" 
+    placeholder="West Oakland" 
+    value="West Oakland">woak</option>
+
+</datalist>

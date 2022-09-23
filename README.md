@@ -9,8 +9,8 @@ To run this app ;
  2. Run server with "Nodemon server.js" command.
  3. Port will run at localhost:3000.
 
-
-
+// Temporarily redacted localhost code at server.js
+// Used the public key within key.js file beucase the backup public key file was not being called for the API, this should be fixed later. 
 
 Developers:
 
