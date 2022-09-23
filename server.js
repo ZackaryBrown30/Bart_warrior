@@ -11,11 +11,11 @@ const sanf = require("./objects/sanfrancisco");
 const souf = require("./objects/south");
 const nort = require("./objects/north");
 const oakl = require("./objects/oakland");
+const north = require("./objects/north");
 const { json } = require("stream/consumers");
 const { response } = require("express");
-const north = require("./objects/north");
 
-app.use(express.static("client/static"));
+app.use(express.static("static"));
 app.use(bodyParser.json());
 app.use(express.json());
 app.use(
@@ -68,6 +68,7 @@ Bi_directionalApiCall = (res)  => {
         .render("index.ejs", {
           South: JSON.parse(south),
           North: JSON.parse(north),
+          destination : destination,
           nort: nort,
           norkeys: norKeys,
           souf:souf,
