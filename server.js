@@ -11,6 +11,9 @@ const sanf = require("./objects/sanfrancisco");
 const souf = require("./objects/south");
 const nort = require("./objects/north");
 const oakl = require("./objects/oakland");
+const { json } = require("stream/consumers");
+const { response } = require("express");
+const north = require("./objects/north");
 
 app.use(express.static("client/static"));
 app.use(bodyParser.json());
@@ -33,32 +36,51 @@ var destination = "19th";
 app.get("/", (req, res) => {
   Bi_directionalApiCall(res)});
 
-
-
 app.get("/:station", (req, res) => {
   (destination = req.params.station),
-  Bi_directionalApiCall(res)});
+  Bi_directionalApiCall(res) // ,
+  // fareCalculator(res),
+  // console.log(fare)
+});
+
+// fareCalculator = (res) => {
+//   request( 
+//     "http://api.bart.gov/api/sched.aspx?cmd=fare&orig='+destination+'&" +endPoint+ "=embr&date=today&key="+ Tempkey+"=y", 
+//     (error, response, fare) => {
+//     console.error("Fare Calculator Error", fare);
+      
+//     })
+//   };
 
 
 Bi_directionalApiCall = (res)  => { 
   request(
   "http://api.bart.gov/api/etd.aspx?cmd=etd&orig=" + destination + "&dir=n&key=" + Tempkey + "&json=y",
     (error, response, north) => {   
-    console.error("North error:", error);
+    console.error("North API error", error);
     request(
       "http://api.bart.gov/api/etd.aspx?cmd=etd&orig=" +destination+ "&dir=s&key=" +Tempkey+ "&json=y",
       (error, response, south) => {
         
-        console.error("South error:", error);
-        console.log(north);
-        console.log(" *********** ");
-        console.log(south);
+        console.error("South API error:", error);
         
         res
         .render("index.ejs", {
           South: JSON.parse(south),
-          North: JSON.parse(north)})
-        })
+          North: JSON.parse(north),
+          nort: nort,
+          norkeys: norKeys,
+          souf:souf,
+          soufkeys:soufKeys,
+          oakl:oakl,
+          oaklkeys:oaklKeys,
+          sanf:sanf,
+          sfkeys:sfKeys,
+
+        }
+        );
+        console.log(nort.antc);
+      })
         .on('error', (err) => {
           res.render("runtime.ejs")})
   })};
