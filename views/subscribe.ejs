@@ -1,4 +1,21 @@
-<div id="accordion">
+<script>
+    
+    window.zacksubmits = () => {
+        const form = document.getElementById('subscribe');
+        const formData = new FormData(form);
+        let output = "";
+
+        for (const [key, value] of formData) {
+            output += `${key}: ${value}\n`;
+        }
+            
+        console.log("Form Data Turd",output)
+
+    }
+
+</script>
+
+<div id="accordion2">
     <div class="card text-center">
     <div class="card-header bg-warning row m-3 text-center
     " id="subscriptionBox">
@@ -10,14 +27,19 @@
     id="collapseThree" 
     class="collapse" 
     aria-labelledby="subscriptionBox" 
-    data-parent="#accordion">
+    data-parent="#accordion2">
         <p class="text-primary text-center display-3"> 
         Subscribe to your most used stations</p>
         <fieldset>
             <legend>Schedule alerts that tell you when your train is arriving, or if there are delays in your commute</legend>
+
+    
         <form 
-        class="card-body btn collapsed" data-toggle="collapse" 
-        data-parent="accordion">
+        class="card-body btn collapsed" 
+        data-toggle="collapse" 
+        data-parent="accordion2"
+        id="subscribe"
+        >
             
             <table class="table table-bordered">
                 <thead class="thead-dark">
@@ -30,7 +52,7 @@
                 <tr>
                     <td scope="row">Monday</td>
                     <td>
-                        <input type="time" name="" id="">
+                        <input type="time" name="" id="monday">
                         <input type="hidden" value="Monday">
 
                     </td>
@@ -38,7 +60,7 @@
                 <tr>
                     <td scope="row">Tuesday</td>
                     <td>
-                        <input type="time" name="" id="">
+                        <input type="time" name="" id="tuesday">
                         <input type="hidden" value="Tuesday">
 
                     </td>
@@ -46,14 +68,14 @@
                 <tr>
                     <td scope="row">Wednesay</td>
                     <td>
-                        <input type="time" name="" id="">
+                        <input type="time" name="" id="wednesday">
                         <input type="hidden" value="Wednesay">
                     </td>
                 </tr>
                 <tr>
                     <td scope="row">Thursday</td>
                     <td>
-                        <input type="time" name="" id="">
+                        <input type="time" name="" id="thursday">
                         <input type="hidden" value="Thursday">
 
                     </td>
@@ -61,21 +83,25 @@
                 <tr>
                     <td scope="row">Friday</td>
                     <td>
-                        <input type="time" name="" id="">
+                        <input type="time" name="" id="friday">
                         <input type="hidden" value="Friday">
                     </td>
                 </tr>
                 <tr>
                     <td scope="row">Saturday</td>
                     <td>
-                        <input type="time" name="" id="">
+                        <input type="time" name="" id="saturday">
                         <input type="hidden" value="Saturday">
                     </td>
                 </tr>
                 <tr>
                     <td scope="row">Sunday</td>
                     <td>
-                        <input type="time" value="" name="" id="">
+                        <input 
+                        id="saunday"
+                        type="time" 
+                        value="" 
+                        name="">
                         <input type="hidden" value="Sunday">
                     </td>
                 </tr>
@@ -94,6 +120,9 @@
                         role="switch" 
                         id="phoneSwitch"> -->
                         <input 
+                        name="phone"
+                        id="phone"
+                        value="null"
                         type="tel" 
                         placeholder="Phone #" 
                         aria-label="Phone number input for scheduled notifications">
@@ -101,9 +130,12 @@
                 <br>
                 <div class="form-check" >
                     <label 
-                    class="form-check-label text-primary" id="emailInput">
+                    class="form-check-label text-primary" id="email">
                     Email Notification</label>
                         <input 
+                        name="email"
+                        id="email"
+                        value="null"
                         type="email"
                         aria-describedby="emailInput"
                         placeholder="@"
@@ -114,8 +146,11 @@
                     <label
                     class="input-group-prepend form-check-label text-primary"
                     id="Station-Label"
-                    >Station Start </label>
+                    >Station</label>
                         <input 
+                        name="station"
+                        id="station"
+                        value="<%= North.root.station[0].name %>"
                         list="stationSelector"       
                         placeholder="<%= North.root.station[0].name %>"
                         aria-label="Station selector"
@@ -123,21 +158,12 @@
                 </div>        
                         
                 <br>
-                
-                <div class="form-check">
-                    <label
-                    class="input-group-prepend text-primary form-check-label"
-                    id="EndStation-Label"
-                    >Station End </label>
-                    <input list="stationSelector" 
-                    placeholder="<%= North.root.station[0].name %>"
-                    aria-label="End Station selector"
-                    aria-describedby="End Station-Label">
-                </div>
-                <br>
+    
                 <div class="form-check">
                     <button 
-                    class="bg-warning text-primary" type="submit" >
+                    type="button"
+                    class="bg-warning text-primary" 
+                    onclick="zacksubmits()" >
                     Schedule</button>
                 </div>
             </div>
@@ -145,6 +171,7 @@
         </form>
     </div>
     </div>
+    
 </div>
     <%# DATALIST %> 
 <datalist id="stationSelector">
@@ -159,6 +186,7 @@
     <option 
     aria-placeholder="West Oakland" 
     placeholder="West Oakland" 
-    value="West Oakland">woak</option>
+    value="West Oakland">
+    </option>
 
 </datalist>

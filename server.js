@@ -1,19 +1,62 @@
+require('dotenv').config();
 const bodyParser = require("body-parser");
 const ejs = require("ejs");
 const express = require("express");
 const flash = require("express-flash");
 const request = require("request");
 const app = express();
-const Key = require("./secure/key");
-const PublicKey = require("./secure/publicKey");
-
-const sanf = require("./objects/sanfrancisco");
-const souf = require("./objects/south");
-const nort = require("./objects/north");
-const oakl = require("./objects/oakland");
-const north = require("./objects/north");
+const fetch = require("node-fetch"); 
 const { json } = require("stream/consumers");
 const { response } = require("express");
+
+
+const Key = require("./secure/key");
+const PublicKey = require("./secure/publicKey");
+const { monitorEventLoopDelay } = require('perf_hooks');
+const { time } = require('console');
+var Mykey = Key.key;
+var cmd = "etd";
+var Tempkey = PublicKey.tempKey;
+var destination = "19th";
+
+
+const automations = {
+  method: 'POST',
+  headers: {
+    Accept: 'application/json',
+    'Content-Type': 'application/json',
+    Authorization: "Bearer "+process.env.CourierKey
+  },
+  body: JSON.stringify({
+      "automation": {
+          "steps": [
+              {
+                  "action": "delay",
+                  "duration": "2 minutes"
+              }
+          ],
+          "cancelation_token": "abcdefgh12345678"
+      },
+      "brand": "W50NC77P524K14M5300PGPEK4JMJ",
+      "template": "S6CME56DCCM6DVQA7CVZR1MTPFPA",
+      "recipient": "8ec8c99a-c5f7-455b-9f60-8222b8a27056",
+      "data": {
+          "name": "Jane Doe",
+          "age": 27
+      },
+      "profile": "example"
+  })
+};
+
+
+fetch('https://api.courier.com/automations/invoke', automations)
+.then(response => response.json())
+.then(response => console.log(response))
+.catch(err => {
+  console.log('84')
+  console.error(err)
+});
+
 
 app.use(express.static("static"));
 app.use(bodyParser.json());
@@ -23,15 +66,6 @@ app.use(
     extended: false
   })
 );
-
-var oaklKeys = Object.keys(oakl);
-var norKeys = Object.keys(nort);
-var soufKeys = Object.keys(souf);
-var sfKeys = Object.keys(sanf);
-var Mykey = Key.key;
-var cmd = "etd";
-var Tempkey = PublicKey.tempKey;
-var destination = "19th";
 
 app.get("/", (req, res) => {
   Bi_directionalApiCall(res)});
@@ -53,6 +87,7 @@ app.get("/:station", (req, res) => {
 //   };
 
 
+
 Bi_directionalApiCall = (res)  => { 
   request(
   "http://api.bart.gov/api/etd.aspx?cmd=etd&orig=" + destination + "&dir=n&key=" + Tempkey + "&json=y",
@@ -66,15 +101,6 @@ Bi_directionalApiCall = (res)  => {
           South: JSON.parse(south),
           North: JSON.parse(north),
           destination : destination,
-          nort: nort,
-          norkeys: norKeys,
-          souf:souf,
-          soufkeys:soufKeys,
-          oakl:oakl,
-          oaklkeys:oaklKeys,
-          sanf:sanf,
-          sfkeys:sfKeys,
-
         }
         );
         // console.log(nort.antc); trying to log the data
