@@ -20,42 +20,49 @@ var Tempkey = PublicKey.tempKey;
 var destination = "19th";
 
 
-const automations = {
-  method: 'POST',
-  headers: {
-    Accept: 'application/json',
-    'Content-Type': 'application/json',
-    Authorization: "Bearer "+process.env.CourierKey
-  },
-  body: JSON.stringify({
-      "automation": {
-          "steps": [
-              {
-                  "action": "delay",
-                  "duration": "2 minutes"
-              }
-          ],
-          "cancelation_token": "abcdefgh12345678"
-      },
-      "brand": "W50NC77P524K14M5300PGPEK4JMJ",
-      "template": "S6CME56DCCM6DVQA7CVZR1MTPFPA",
-      "recipient": "8ec8c99a-c5f7-455b-9f60-8222b8a27056",
-      "data": {
-          "name": "Jane Doe",
-          "age": 27
-      },
-      "profile": "example"
-  })
-};
+// const automations = {
+//   method: 'POST',
+//   headers: {
+//     Accept: 'application/json',
+//     'Content-Type': 'application/json',
+//     Authorization: "Bearer "+process.env.CourierKey
+//   },
+//   body: JSON.stringify({
+//     "profile": {
+//       "email": output.email,
+//       "phone_number": output.phone_number
+//       },
+//       "automation": {
+//           "steps": [
+//               {
+//                   "action": "delay",
+//                   "duration": "2 minutes"
+//               }
+//           ],
+//           "cancelation_token": "abcdefgh12345678"
+//       },
+//       "brand": "W50NC77P524K14M5300PGPEK4JMJ",
+//       "template": "S6CME56DCCM6DVQA7CVZR1MTPFPA",
+//       "recipient": "8ec8c99a-c5f7-455b-9f60-8222b8a27056",
+//       "data": {
+//         "day": output.day,
+//         "time": output.time,
+//         "phone_number": output.phone_number,
+//         "email": output.email,
+//         "station": output.station
+//       },
+//       "profile": "example"
+//   })
+// };
 
 
-fetch('https://api.courier.com/automations/invoke', automations)
-.then(response => response.json())
-.then(response => console.log(response))
-.catch(err => {
-  console.log('84')
-  console.error(err)
-});
+// fetch('https://api.courier.com/automations/invoke', automations)
+// .then(response => response.json())
+// .then(response => console.log(response))
+// .catch(err => {
+//   console.log('84')
+//   console.error(err)
+// });
 
 
 app.use(express.static("static"));

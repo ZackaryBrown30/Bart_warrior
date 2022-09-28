@@ -7,17 +7,16 @@
 
         for (const [key, value] of formData) {
             output += `${key}: ${value}\n`;
-        }
-            
-        console.log("Form Data Turd",output)
-
-    }
+        }     
+        console.log("Form Data: ",output)
+    };
 
 </script>
 
+
 <div id="accordion2">
     <div class="card text-center">
-    <div class="card-header bg-warning row m-3 text-center
+    <div class="card-header bg-warning row text-center
     " id="subscriptionBox">
         <button class="btn text-primary text-center mx-auto" data-toggle="collapse" data-target="#collapseThree" aria-expanded="true" aria-controls="collapseThree">
         <h1>Schedule Alerts</h1>
@@ -30,102 +29,63 @@
     data-parent="#accordion2">
         <p class="text-primary text-center display-3"> 
         Subscribe to your most used stations</p>
-        <fieldset>
-            <legend>Schedule alerts that tell you when your train is arriving, or if there are delays in your commute</legend>
-
-    
+        <p>
+            We'll even text you if there's a delay within 30 minutes of your Alert
+        </p>
+        <%# Here i have done a foolish thing and added 
+        Method:post
+        action=" idk wtf "
+        onsubmit LOG FOR ME!    
+        none of which works....
+        It may be wiser to use the function above APTLY titled
+        Zacksubmits ;d to call&response the api %> 
+        
         <form 
         class="card-body btn collapsed" 
         data-toggle="collapse" 
         data-parent="accordion2"
         id="subscribe"
+        method="post"
+        action=""
+        onsubmit="console.log('form data:',output)"
         >
-            
-            <table class="table table-bordered">
-                <thead class="thead-dark">
-                    <tr>
-                        <th scope="col">Day</th>
-                        <th scope="col">Time</th>
-                    </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td scope="row">Monday</td>
-                    <td>
-                        <input type="time" name="" id="monday">
-                        <input type="hidden" value="Monday">
+        <div class="form-group">
+            <div class="form-check">
 
-                    </td>
-                </tr>
-                <tr>
-                    <td scope="row">Tuesday</td>
-                    <td>
-                        <input type="time" name="" id="tuesday">
-                        <input type="hidden" value="Tuesday">
-
-                    </td>
-                </tr>
-                <tr>
-                    <td scope="row">Wednesay</td>
-                    <td>
-                        <input type="time" name="" id="wednesday">
-                        <input type="hidden" value="Wednesay">
-                    </td>
-                </tr>
-                <tr>
-                    <td scope="row">Thursday</td>
-                    <td>
-                        <input type="time" name="" id="thursday">
-                        <input type="hidden" value="Thursday">
-
-                    </td>
-                </tr>
-                <tr>
-                    <td scope="row">Friday</td>
-                    <td>
-                        <input type="time" name="" id="friday">
-                        <input type="hidden" value="Friday">
-                    </td>
-                </tr>
-                <tr>
-                    <td scope="row">Saturday</td>
-                    <td>
-                        <input type="time" name="" id="saturday">
-                        <input type="hidden" value="Saturday">
-                    </td>
-                </tr>
-                <tr>
-                    <td scope="row">Sunday</td>
-                    <td>
-                        <input 
-                        id="saunday"
-                        type="time" 
-                        value="" 
-                        name="">
-                        <input type="hidden" value="Sunday">
-                    </td>
-                </tr>
-            </tbody>
-            </table>
-            <br>
-        </select>
-            <div class="form-group">
-                <div class="form-check">
+                <div class="input-group">
+                    <span class="input-group-text">Day & Time</span>
+                    <select 
+                    type="select" 
+                    aria-label="day of the week" 
+                    class="form-control"
+                    name="day"
+                    >
+                        <option value="monday">Mon</option>    
+                        <option value="tuesday">Tue</option>
+                        <option value="wednesday">Wed</option>
+                        <option value="thursday">Thu</option>
+                        <option value="friday">Fri</option>
+                        <option value="saturday"> Sat</option>
+                        <option value="sunday">Sun</option>
+                    <input 
+                    type="time"
+                    id="time"
+                    name="time"
+                    aria-label="time picker" 
+                    class="form-control">
+                    </div>
+                    
+                <br>
                     <label 
                     class="text-primary">
-                    Text Notification</label>
-                    <!-- <input 
-                        class="form-check-input" 
-                        type="checkbox" 
-                        role="switch" 
-                        id="phoneSwitch"> -->
+                    Text Notification
                         <input 
-                        name="phone"
-                        id="phone"
-                        value="null"
+                        name="phone_number"
+                        id="phone_number"
                         type="tel" 
                         placeholder="Phone #" 
                         aria-label="Phone number input for scheduled notifications">
+                    </label>
                 </div>
                 <br>
                 <div class="form-check" >
@@ -135,7 +95,6 @@
                         <input 
                         name="email"
                         id="email"
-                        value="null"
                         type="email"
                         aria-describedby="emailInput"
                         placeholder="@"
@@ -147,6 +106,7 @@
                     class="input-group-prepend form-check-label text-primary"
                     id="Station-Label"
                     >Station</label>
+
                         <input 
                         name="station"
                         id="station"
@@ -159,21 +119,61 @@
                         
                 <br>
     
+                <div class="btn-group">
+                    <div class="form-check form-check-reverse form-switch text-primary">
+                        <label
+                        class="text-primary"
+                        style="margin-left:1em;"
+                        aria-hidden="true"
+                        >Repeat Weekly
+                        <input 
+                        aria-label="checkbox to repeat weekly"
+                        class="form-check-input" 
+                        type="checkbox" 
+                        role="switch" 
+                        id="flexSwitchCheckDefault"
+                        name="repeat"
+                        value="yes"
+                        onChange={handleChange}
+                        >
+                        </label>
+                      </div>
+                    </div>
+
+                    <br>
+                    <br>
+
                 <div class="form-check">
                     <button 
                     type="button"
                     class="bg-warning text-primary" 
-                    onclick="zacksubmits()" >
+                    onclick="zacksubmits()">
                     Schedule</button>
                 </div>
             </div>
-        </fieldset>
         </form>
-    </div>
-    </div>
     
+    <details>
+        <summary class="text-secondary text-end">Easy Unsubscribe</summary>
+        <strong>Submitting this form will create a profile through @trycourier. Your data will never be sold and will remain private. You may use the link on each email to Unsubscribe, or text Stop to "XXX-XXX-XXXX"
+            <span><br></span>
+            Thank you for using my app! -Zack
+        </strong> 
+    </details>
 </div>
-    <%# DATALIST %> 
+</div>
+</div>
+
+
+<%# Experminent: the form is not sending a value if this radio is unchecked, I would prefer it sent "repeat: no;"  %> 
+<script>
+function handleChange(e) {
+    const value = e.target.value;
+    setState({repeat: 'no'});
+    }
+</script>  
+
+<%# DATALIST %> 
 <datalist id="stationSelector">
     <option 
     aria-placeholder="19th"
@@ -190,3 +190,39 @@
     </option>
 
 </datalist>
+
+<script>
+
+    const fetch = require('node-fetch');
+
+    const automations = {
+    method: 'POST',
+    headers: {
+        Accept: 'application/json',
+        'Content-Type': 'application/json',
+        Authorization: "Bearer "+process.env.CourierKey
+    },
+    body: JSON.stringify({
+        "profile": {
+        "email": output.email,
+        "phone_number": output.phone_number
+        },
+        "data": {
+            "day": output.day,
+            "time": output.time,
+            "phone_number": output.phone_number,
+            "email": output.email,
+            "station": output.station
+        },
+        "profile": "example"
+    })
+    };
+
+    fetch('https://api.courier.com/profiles/0460766e-8463-4905-ae98-b72c7aef41d6', automations)
+    .then(response => response.json())
+    .then(response => console.log(response))
+    .catch(err => console.error(err));
+
+
+
+</script>
