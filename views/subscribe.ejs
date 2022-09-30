@@ -1,29 +1,41 @@
 <script>
     
-    window.zacksubmits = () => {
+    window.zacksubmits = async () => {
         const form = document.getElementById('subscribe');
         const formData = new FormData(form);
-        let output = "";
-
+        let output = {};
         for (const [key, value] of formData) {
-            output += `${key}: ${value}\n`;
-        }     
-        console.log("Form Data: ",output)
-    };
+            output = {...output,[key]:value}
+        }   
+        console.log("form data from subscribe.zacksubmits()",formData);  
+        console.log("output from subscribe.zacksubmits()",output);
+
+        const options = {
+        method: 'POST',
+        headers: {'Content-Type': 'application/json'},
+        body: JSON.stringify(output)
+        };
+
+        await fetch('/submit', options)
+        .then(response => response.json())
+        .then(response => console.log(response))
+        .catch(err => console.error(err));
+            };
 
 </script>
 
 
 <div id="accordion2">
     <div class="card text-center">
-    <div class="card-header bg-warning row text-center
-    " id="subscriptionBox">
-        <button class="btn text-primary text-center mx-auto" data-toggle="collapse" data-target="#collapseThree" aria-expanded="true" aria-controls="collapseThree">
+    <div 
+    class="card-header bg-warning row text-center" 
+    id="subscriptionBox">
+        <button class="btn text-primary text-center mx-auto" data-toggle="collapse" data-target="#collapseSix" aria-expanded="true" aria-controls="collapseSix">
         <h1>Schedule Alerts</h1>
         </button>
         </div class="container">
     <div 
-    id="collapseThree" 
+    id="collapseSix" 
     class="collapse" 
     aria-labelledby="subscriptionBox" 
     data-parent="#accordion2">
@@ -32,22 +44,12 @@
         <p>
             We'll even text you if there's a delay within 30 minutes of your Alert
         </p>
-        <%# Here i have done a foolish thing and added 
-        Method:post
-        action=" idk wtf "
-        onsubmit LOG FOR ME!    
-        none of which works....
-        It may be wiser to use the function above APTLY titled
-        Zacksubmits ;d to call&response the api %> 
         
         <form 
         class="card-body btn collapsed" 
         data-toggle="collapse" 
         data-parent="accordion2"
         id="subscribe"
-        method="post"
-        action=""
-        onsubmit="console.log('form data:',output)"
         >
         <div class="form-group">
             <div class="form-check">
@@ -69,8 +71,8 @@
                         <option value="sunday">Sun</option>
                     <input 
                     type="time"
-                    id="time"
-                    name="time"
+                    id="date"
+                    name="date"
                     aria-label="time picker" 
                     class="form-control">
                     </div>
@@ -147,6 +149,7 @@
                     <button 
                     type="button"
                     class="bg-warning text-primary" 
+                    data-toggle="collapse" data-target="#collapseSix" aria-controls="collapseSix"
                     onclick="zacksubmits()">
                     Schedule</button>
                 </div>
@@ -190,39 +193,3 @@ function handleChange(e) {
     </option>
 
 </datalist>
-
-<script>
-
-    const fetch = require('node-fetch');
-
-    const automations = {
-    method: 'POST',
-    headers: {
-        Accept: 'application/json',
-        'Content-Type': 'application/json',
-        Authorization: "Bearer "+process.env.CourierKey
-    },
-    body: JSON.stringify({
-        "profile": {
-        "email": output.email,
-        "phone_number": output.phone_number
-        },
-        "data": {
-            "day": output.day,
-            "time": output.time,
-            "phone_number": output.phone_number,
-            "email": output.email,
-            "station": output.station
-        },
-        "profile": "example"
-    })
-    };
-
-    fetch('https://api.courier.com/profiles/0460766e-8463-4905-ae98-b72c7aef41d6', automations)
-    .then(response => response.json())
-    .then(response => console.log(response))
-    .catch(err => console.error(err));
-
-
-
-</script>

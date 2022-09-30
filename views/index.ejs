@@ -7,68 +7,78 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
     <!-- Updated Bootstrap -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT"
+      crossorigin="anonymous"
+    />
     <script>
-    window.norf = { 
-    ashb :  'Ashby (Berkeley)' ,
-    antc :  'Antioch' ,
-    conc :  'Concord' ,
-    rock :  'Rockridge' ,
-    lafy :  'Lafayette' ,
-    orin :  'Orinda' ,
-    pitt :  'Pittsburg/Bay Point' ,
-    pctr :  'Pittsburg Center' ,
-    phil :  'Pleasant Hill' ,
-    rich :  'Richmond' ,
-    dbrk :  'Downtown Berkeley' ,
-    dubl :  'Dublin/Pleasanton' ,
-    deln :  'El Cerrito del Norte' ,
-    plza :  'El Cerrito Plaza' ,
-    hayw :  'Hayward' ,
-    frmt :  'Fremont' ,
-    shay :  'South Hayward',
-    nbrk :  'North Berkeley' ,
-    ncon :  'North Concord/Martinez' ,
-    wcrk :  'Walnut Creek' ,
-    wdub :  'West Dublin' ,
-    ucty :  'Union City' 
-    };        
-    window.oakl = {
-    '12th' :  "12th St. Oakland City Center" ,
-    '19th' :  "19th St. Oakland ",
-    cols :  "Coliseum" ,
-    ftvl :  'Fruitvale' ,
-    lake :  'Lake Merritt' ,
-    mcar :  'MacArthur ',
-    oakl :  'Oakland Intl Airport' ,
-    woak :  'West Oakland ' 
-    };
-    window.souf = {
-    sanl :  'San Leandro' ,
-    warm :  'Warm Springs/South Fremont' ,
-    bayf :  'Bay Fair (San Leandro)' ,
-    bery :  'Berryessa' ,
-    cast :  'Castro Valley' 
-    };
-    sanfran = {
-    '16th' :  '16th St. Mission' ,
-    '24th' :  '24th St. Mission' ,
-    balb :  'Balboa Park' ,
-    colm :  'Colma' ,
-    civc :  'Civic Center' ,
-    daly :  'Daly City' ,
-    embr :  'Embarcadero' ,
-    glen :  'Glen Park' ,
-    powl :  'Powell St.' ,
-    mlpt :  'Milpitas' ,
-    mont :  'Montgomery St.' ,
-    mlbr :  'Millbrae' ,
-    ssan :  'South San Francisco' ,
-    sbrn :  'San Bruno' ,
-    sfia :  'SF Intl Airport '
-    };   </script>
- 
-    <link rel="icon" type="img/png" src="/static/bartIcon.png">
+      window.norf = {
+        ashb: "Ashby (Berkeley)",
+        antc: "Antioch",
+        conc: "Concord",
+        rock: "Rockridge",
+        lafy: "Lafayette",
+        orin: "Orinda",
+        pitt: "Pittsburg/Bay Point",
+        pctr: "Pittsburg Center",
+        phil: "Pleasant Hill",
+        rich: "Richmond",
+        dbrk: "Downtown Berkeley",
+        dubl: "Dublin/Pleasanton",
+        deln: "El Cerrito del Norte",
+        plza: "El Cerrito Plaza",
+        hayw: "Hayward",
+        frmt: "Fremont",
+        shay: "South Hayward",
+        nbrk: "North Berkeley",
+        ncon: "North Concord/Martinez",
+        wcrk: "Walnut Creek",
+        wdub: "West Dublin",
+        ucty: "Union City",
+      };
+      window.oakl = {
+        "12th": "12th St. Oakland City Center",
+        "19th": "19th St. Oakland ",
+        cols: "Coliseum",
+        ftvl: "Fruitvale",
+        lake: "Lake Merritt",
+        mcar: "MacArthur ",
+        oakl: "Oakland Intl Airport",
+        woak: "West Oakland ",
+      };
+      window.souf = {
+        sanl: "San Leandro",
+        warm: "Warm Springs/South Fremont",
+        bayf: "Bay Fair (San Leandro)",
+        bery: "Berryessa",
+        cast: "Castro Valley",
+      };
+      sanf = {
+        "16th": "16th St. Mission",
+        "24th": "24th St. Mission",
+        balb: "Balboa Park",
+        colm: "Colma",
+        civc: "Civic Center",
+        daly: "Daly City",
+        embr: "Embarcadero",
+        glen: "Glen Park",
+        powl: "Powell St.",
+        mlpt: "Milpitas",
+        mont: "Montgomery St.",
+        mlbr: "Millbrae",
+        ssan: "South San Francisco",
+        sbrn: "San Bruno",
+        sfia: "SF Intl Airport ",
+      };
+      north = Object.entries(window.norf);
+      south = Object.entries(window.souf);
+      oakland = Object.entries(window.oakl);
+      sanfran = Object.entries(window.sanf);
+    </script>
+
+    <link rel="icon" type="img/png" src="/static/bartIcon.png" />
 
     <title>Bart Warrior</title>
   </head>
@@ -77,43 +87,33 @@
     <%- include('header'); -%>
     <div class="container">
       <div class="row">
+        <!-- If the Api has no data within these parameters for north and or south, the user sees a message explaining There are no respective trains.  -->
 
-<!-- If the Api has no data within these parameters for north and or south, the user sees a message explaining There are no respective trains.  -->
+        <% if (!North.root.station[0].etd) { %>
+        <div class="col-md-5 m-1 rounded bg-warning text-primary">
+          <h1 class="p-2">No Northbound Trains at this Time</h1>
+        </div>
+        <%}%> <% if (!South.root.station[0].etd) { %>
+        <div class="col-md-5 m-1 rounded bg-primary text-light">
+          <h1 class="p-2">No Southbound Trains at this Time</h1>
+        </div>
+        <%}%>
 
-        <% if (!North.root.station[0].etd) { %> 
-          <div class="col-md-5 m-1 rounded bg-warning text-primary">
-            <h1 class="p-2" >
-              No Northbound Trains at this Time</h1>
-          </div>
-           <%}%> 
+        <!-- If no times are listed, bart is not running at this station, display afterhours -->
 
-        <% if (!South.root.station[0].etd) { %> 
-          <div class="col-md-5 m-1 rounded bg-primary text-light">
-            <h1 class="p-2" >
-              No Southbound Trains at this Time</h1>
-          </div>
-          <%}%> 
+        <% if (!South.root.station[0].etd && !North.root.station[0].etd) { %>
+        <%-include('afterHours'); %> <%}%>
 
- <!-- If no times are listed, bart is not running at this station, display afterhours -->
+        <!-- Northbound Module  -->
+        <% if (North.root.station[0].etd) { %> <%- include('north'); -%> <% }
+        -%>
 
-          <% if (!South.root.station[0].etd && !North.root.station[0].etd) { %> 
-            <%-include('afterHours'); %>
-              <%}%> 
-
-            <!-- Northbound Module  -->
-        <% if (North.root.station[0].etd) { %> 
-          <%- include('north'); -%> 
-          <% } -%>
-          
-          <!-- SouthBound Module -->
-        <% if (South.root.station[0].etd) { %> 
-          <%- include('south'); -%>
-          <% } -%>
-
+        <!-- SouthBound Module -->
+        <% if (South.root.station[0].etd) { %> <%- include('south'); -%> <% }
+        -%>
       </div>
     </div>
-    <%- include('subscribe'); -%>
-    <%- include('footer'); -%>
+    <%- include('subscribe'); -%> <%- include('footer'); -%>
   </body>
   <script
     src="https://code.jquery.com/jquery-3.4.1.min.js"
@@ -125,6 +125,4 @@
     type="text/javascript"
     src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
   ></script>
-
-  </html>
-
+</html>
