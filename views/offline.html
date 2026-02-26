@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BART Warrior - Offline</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            background-color: #f8f9fa;
+        }
+        .offline-container {
+            text-align: center;
+            max-width: 500px;
+            padding: 20px;
+        }
+        .offline-icon {
+            font-size: 4rem;
+            margin-bottom: 20px;
+        }
+        h1 {
+            color: #dc3545;
+            margin-bottom: 15px;
+        }
+        p {
+            color: #6c757d;
+            margin-bottom: 20px;
+        }
+        .refresh-btn {
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="offline-container">
+        <div class="offline-icon">📡</div>
+        <h1>You're Offline</h1>
+        <p>We couldn't connect to the internet. Check your connection and try refreshing the page.</p>
+        <p>If you've visited BART Warrior before, your cached data might be available when you refresh.</p>
+        <button class="btn btn-primary refresh-btn" onclick="window.location.reload()">Refresh Page</button>
+    </div>
+</body>
+</html>

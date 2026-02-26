@@ -125,4 +125,70 @@
     type="text/javascript"
     src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
   ></script>
+
+  <!-- App initialization and timer for poor reception areas -->
+  <script src="/app.js"></script>
+
+  <!-- Register Service Worker for offline caching and fast reload -->
+  <script>
+    if ('serviceWorker' in navigator) {
+      window.addEventListener('load', () => {
+        navigator.serviceWorker.register('/service-worker.js')
+          .then((registration) => {
+            console.log('[App] Service Worker registered successfully:', registration);
+          })
+          .catch((error) => {
+            console.log('[App] Service Worker registration failed:', error);
+          });
+      });
+    }
+  </script>
+
+  <style>
+    #data-timestamp {
+      font-weight: 500;
+      background: transparent !important;
+      padding: 0 !important;
+      margin: 0 !important;
+    }
+    #data-timestamp.stale {
+      color: #ff9800;
+    }
+  </style>
+
+  <script>
+    // Preserve accordion open panel across page reloads so map/selection doesn't collapse
+    (function(){
+      const STORAGE_KEY = 'openCollapseId';
+
+      // When a collapse is shown, save its id
+      document.addEventListener('shown.bs.collapse', function(e){
+        if(e.target && e.target.id){
+          try { localStorage.setItem(STORAGE_KEY, e.target.id); } catch(err){}
+        }
+      });
+
+      // When a collapse is hidden and it was the stored one, clear storage
+      document.addEventListener('hidden.bs.collapse', function(e){
+        try {
+          const id = localStorage.getItem(STORAGE_KEY);
+          if(id === e.target.id) localStorage.removeItem(STORAGE_KEY);
+        } catch(err){}
+      });
+
+      // On load, open the stored collapse if present
+      window.addEventListener('DOMContentLoaded', function(){
+        try {
+          const id = localStorage.getItem(STORAGE_KEY);
+          if(id){
+            const el = document.getElementById(id);
+            if(el && typeof $ === 'function'){
+              // Use Bootstrap/jQuery to show
+              $('#' + id).collapse('show');
+            }
+          }
+        } catch(err){}
+      });
+    })();
+  </script>
 </html>

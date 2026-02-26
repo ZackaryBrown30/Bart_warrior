@@ -1,26 +1,19 @@
 <script>
     
-    window.zacksubmits = async () => {
+    window.zacksubmits = () => {
         const form = document.getElementById('subscribe');
         const formData = new FormData(form);
         let output = {};
         for (const [key, value] of formData) {
             output = {...output,[key]:value}
         }   
-        console.log("form data from subscribe.zacksubmits()",formData);  
-        console.log("output from subscribe.zacksubmits()",output);
-
-        const options = {
-        method: 'POST',
-        headers: {'Content-Type': 'application/json'},
-        body: JSON.stringify(output)
-        };
-
-        await fetch('/submit', options)
-        .then(response => response.json())
-        .then(response => console.log(response))
-        .catch(err => console.error(err));
-            };
+        console.log("Alert preferences saved to localStorage:", output);  
+        
+        // Save to browser localStorage (no backend needed)
+        localStorage.setItem('bartAlertPreferences', JSON.stringify(output));
+        
+        alert('Alert preferences saved! (stored locally in your browser)');
+    };
 
 </script>
 
@@ -157,8 +150,10 @@
         </form>
     
     <details>
-        <summary class="text-secondary text-end">Easy Unsubscribe</summary>
-        <strong>Submitting this form will create a profile through @trycourier. Your data will never be sold and will remain private. You may use the link on each email to Unsubscribe, or text Stop to "XXX-XXX-XXXX"
+        <summary class="text-secondary text-end">About Preferences</summary>
+        <strong>Your alert preferences are saved locally in your browser (no account or backend storage required). Clear your browser data to reset.
+            <span><br></span>
+            Future: email/SMS notifications coming soon!
             <span><br></span>
             Thank you for using my app! -Zack
         </strong> 
